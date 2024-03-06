@@ -1,0 +1,17 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Project "SCAFFOLD 1.0" {
+  database_type: 'PostgreSQL'
+  Note: 'SCAFFOLD 1.0'
+}
+
+Table users {
+  id String [pk]
+  name String [not null]
+  phone String [unique, not null]
+  email String [unique, not null]
+  walletAddress String [unique, not null]
+  createdAt DateTime [default: `now()`, not null]
+}

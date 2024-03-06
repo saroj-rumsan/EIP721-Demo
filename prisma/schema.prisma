@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator dbml {
+  provider            = "prisma-dbml-generator"
+  outputName          = "scaffold-model.dbml"
+  projectName         = "SCAFFOLD 1.0"
+  projectDatabaseType = "PostgreSQL"
+  projectNote         = "SCAFFOLD 1.0"
+}
+
+generator docs {
+  provider = "node node_modules/prisma-docs-generator"
+}
+
+model User {
+  id            String   @id @default(uuid())
+  name          String
+  phone         String   @unique
+  email         String   @unique
+  walletAddress String   @unique
+  createdAt     DateTime @default(now())
+
+  @@map("users")
+}
